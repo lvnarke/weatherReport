@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="reportPrint:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>reportPrint</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SampleServlet.war">
+      <element id="artifact" artifact-name="reportPrint:war exploded" />
+    </root>
+  </artifact>
+</component>

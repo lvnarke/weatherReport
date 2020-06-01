@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Azure SQL Database - reportprint@reportprint.database.windows.net" uuid="f0b14ee8-cd62-41dc-8377-28f8cb8d5c50">
+      <driver-ref>azure.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://reportprint.database.windows.net:1433;database=reportprint</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@server.database.windows.net" uuid="5a229342-845b-4ac9-9b82-863ed1446ec9">
+      <driver-ref>azure.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://server.database.windows.net:1433</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@server.database.windows.net [2]" uuid="db72756b-2643-44aa-a1d3-00c5c2fa80d5">
+      <driver-ref>azure.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://server.database.windows.net:1433</jdbc-url>
+    </data-source>
+  </component>
+</project>
