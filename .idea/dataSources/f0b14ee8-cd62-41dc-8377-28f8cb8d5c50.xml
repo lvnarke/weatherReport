@@ -57,6 +57,7 @@
     </schema>
     <table id="17" parent="14" name="customerTable">
       <ObjectId>1205579333</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-05-31.02:00:16.683</CreatedTimestamp>
       <ModifiedTimestamp>2020-06-01.21:57:26.070</ModifiedTimestamp>
     </table>
