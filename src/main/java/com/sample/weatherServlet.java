@@ -1,77 +1,82 @@
 package com.sample;//package com.sample;
 
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
+import java.util.ArrayList;
 
 
 @WebServlet(urlPatterns = {"/geoLocation","/getWeatherUpdate"})
 
 public class weatherServlet extends HttpServlet{
+    static ArrayList<Float> values = new ArrayList<>();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         final String api = req.getServletPath();
-        String locationUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/";
-        String apiKey = "pk.eyJ1IjoibHZuYXJrZSIsImEiOiJja2IxN3N2c3cwYmE2Mnptbm00Ymd1aDdhIn0.juuMaGPEWb3h9zac907E6A ";
+        String location = "";
+        String country = "";
+
 
 
         switch (api){
-            case "geoLocation":{
+            case "/geoLocation":{
 
-                String location = req.getParameter("location");
-                String country = req.getParameter("country");
-                PrintWriter writer = resp.getWriter();
-                writer.println("Location : "+location+" Country: "+country);
+                System.out.println("Inside geoLocation servlet");
 
-                locationUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/Washington.json?limit=1&access_token=pk.eyJ1IjoibHZuYXJrZSIsImEiOiJja2IxN3N2c3cwYmE2Mnptbm00Ymd1aDdhIn0.juuMaGPEWb3h9zac907E6A";
+                location = req.getParameter("location");
+                country = req.getParameter("country");
+                System.out.println("Getting values");
 
-                HttpURLConnection conn=null;
-                BufferedReader reader=null;
-                try{
-                    //Declare the connection to weather api url
-                    URL url = new URL(locationUrl);
+                mapAPI mapAPI = new mapAPI();
+                String data = mapAPI.getData(location);
 
-                    conn = (HttpURLConnection)url.openConnection();
-                    conn.setRequestMethod("GET");
-                    conn.setRequestProperty("Accept", "application/json");
-                   // conn.setRequestProperty("apikey",apiKey);
 
-                    if (conn.getResponseCode() != 200) {
-                        throw new RuntimeException("HTTP GET Request Failed with Error code : "
-                                + conn.getResponseCode());
-                    }
-                    else{
-                        System.out.println("API worked!");
+                String str = "";
+                for(int i=0;i<data.length();i++){
+
+                    if(data.charAt(i)>='0' && data.charAt(i)<='9'|| data.charAt(i)=='.'||data.charAt(i)=='-'){
+                        str = str + data.charAt(i);
                     }
 
-                    //Read the content from the defined connection
-                    //Using IO Stream with Buffer raise highly the efficiency of IO
-                    reader = new BufferedReader(new InputStreamReader(conn.getInputStream(),"utf-8"));
-                    String output = null;
-                    while ((output = reader.readLine()) != null) {
-                        writer.append(output);
-                        System.out.println(output);
+                    else if(data.charAt(i)==','||data.charAt(i)==']'){
+                        System.out.println(""+str);
+                        float val = Float.parseFloat(str);
+                        System.out.println(val);
+                        values.add(val);
+                        str = "";
+                        if(data.charAt(i)==']')
+                            break;
                     }
-
-                }catch(IOException e){
-                    e.printStackTrace();
                 }
+
+//                PrintWriter writer = resp.getWriter();
+//                writer.println("Location : "+location+"\nCountry: "+country);
+//                writer.println("Longitude and Latitude"+ data);
+
+                RequestDispatcher view = req.getRequestDispatcher("result.jsp");
+                view.forward(req, resp);
+
             }
             break;
-            case "getWeatherUpdate":{
+            case "/getWeatherUpdate":{
 
+
+                System.out.println(""+values.size());
+                for (int i =0;i< values.size();i++){
+                    System.out.println(values.get(i));
+                }
+                weatherAPI weatherAPI = new weatherAPI();
+                weatherAPI.getUpdate(values.get(0),values.get(1));
+
+                values.removeAll(values);
             }
             break;
 

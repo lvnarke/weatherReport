@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="reportPrint:war">
+  <artifact type="war" name="weatherReportProject:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
