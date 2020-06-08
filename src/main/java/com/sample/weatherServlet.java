@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 
-@WebServlet(urlPatterns = {"/geoLocation","/getWeatherUpdate"})
+@WebServlet(urlPatterns = {"/geoLocationapi","/getWeatherUpdate"})
 
 public class weatherServlet extends HttpServlet{
     static ArrayList<Float> values = new ArrayList<>();
@@ -26,7 +27,7 @@ public class weatherServlet extends HttpServlet{
 
 
         switch (api){
-            case "/geoLocation":{
+            case "/geoLocationapi":{
 
                 System.out.println("Inside geoLocation servlet");
 
@@ -56,16 +57,20 @@ public class weatherServlet extends HttpServlet{
                     }
                 }
 
-//                PrintWriter writer = resp.getWriter();
-//                writer.println("Location : "+location+"\nCountry: "+country);
-//                writer.println("Longitude and Latitude"+ data);
+                PrintWriter writer = resp.getWriter();
+               //writer.println("Location : "+location+"\nCountry: "+country);
+               writer.println(data);
+               //writer.append("OK");
 
-                RequestDispatcher view = req.getRequestDispatcher("result.jsp");
-                view.forward(req, resp);
+//                RequestDispatcher view = req.getRequestDispatcher("result.jsp");
+//                view.forward(req, resp);
 
             }
             break;
             case "/getWeatherUpdate":{
+
+                float lati = Float.parseFloat(req.getParameter("lati"));
+                float longi = Float.parseFloat(req.getParameter("longi"));
 
 
                 System.out.println(""+values.size());
@@ -73,9 +78,13 @@ public class weatherServlet extends HttpServlet{
                     System.out.println(values.get(i));
                 }
                 weatherAPI weatherAPI = new weatherAPI();
-                weatherAPI.getUpdate(values.get(0),values.get(1));
+               String output= weatherAPI.getUpdate(lati,longi);
 
                 values.removeAll(values);
+                PrintWriter writer = resp.getWriter();
+                writer.append(output);
+               //RequestDispatcher view = req.getRequestDispatcher("table.html");
+               //view.forward(req, resp);
             }
             break;
 

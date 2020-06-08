@@ -1,0 +1,14 @@
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:23 +0530] "GET /weatherReport HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:23 +0530] "GET /weatherReport/ HTTP/1.1" 304 - http-bio-8080-exec-3 12
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:23 +0530] "GET /weatherReport/assets/js/azure-storage-blob.js HTTP/1.1" 404 1041 http-bio-8080-exec-4 10
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:25 +0530] "GET /weatherReport/geoLocation.html HTTP/1.1" 200 8073 http-bio-8080-exec-5 2
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:25 +0530] "GET /weatherReport/assets/js/azure-storage-blob.js HTTP/1.1" 404 1041 http-bio-8080-exec-6 1
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:25 +0530] "GET /weatherReport/assets/img/printerFavicon.png HTTP/1.1" 404 1037 http-bio-8080-exec-7 1
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:31 +0530] "POST /weatherReport/geoLocationapi HTTP/1.1" 200 22 http-bio-8080-exec-8 1565
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:32 +0530] "GET /weatherReport/weather.html?lati=77.59796&longi=12.96991&city=Bengaluru HTTP/1.1" 200 11815 http-bio-8080-exec-9 2
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:32 +0530] "GET /weatherReport/assets/js/azure-storage-blob.js HTTP/1.1" 404 1041 http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:55:33 +0530] "POST /weatherReport/getWeatherUpdate HTTP/1.1" 200 473 http-bio-8080-exec-10 550
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:56:05 +0530] "POST /weatherReport/geoLocationapi HTTP/1.1" 200 16 http-bio-8080-exec-10 111
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:56:07 +0530] "GET /weatherReport/weather.html?lati=-120.5&longi=47.5&city=Washington HTTP/1.1" 200 11815 http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:56:07 +0530] "GET /weatherReport/assets/js/azure-storage-blob.js HTTP/1.1" 404 1041 http-bio-8080-exec-10 1
+0:0:0:0:0:0:0:1 - - [08/Jun/2020:11:56:07 +0530] "POST /weatherReport/getWeatherUpdate HTTP/1.1" 200 468 http-bio-8080-exec-10 491

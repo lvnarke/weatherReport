@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class weatherAPI {
 
-    public void getUpdate( float lon,float lat ) throws IOException {
+    public String getUpdate(float lon, float lat ) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         Request request = new Request.Builder()
@@ -19,6 +19,7 @@ public class weatherAPI {
         Response response = client.newCall(request).execute();
 
 
-        System.out.println(response.body().string());
+       // System.out.println();
+        return response.body().string();
     }
 }

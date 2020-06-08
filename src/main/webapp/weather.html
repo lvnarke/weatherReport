@@ -85,7 +85,7 @@
 
             <div class="section-title">
                 <!-- <span>Report Print</span> -->
-                <h2>Weather Report</h2>
+                <h2 id="titleheader">Weather Report</h2>
             </div>
 
             <div class="row">
@@ -264,6 +264,41 @@
         document.getElementById("sunset").innerHTML=json.sys.sunset;
     }
     setTableData(weatherJson);
+    processUser();
+    var locationparam;
+    function processUser()
+    {
+        var parameters = location.search.substring(1).split("&");
+
+        var lati = parameters[0].split("=")[1];
+        var longi = parameters[1].split("=")[1];
+        locationparam=parameters[2].split("=")[1];
+        var titleheader=document.getElementById("titleheader")
+        titleheader.innerHTML=titleheader.innerHTML+" "+locationparam;
+
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("lati", lati);
+        urlencoded.append("longi", longi);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("getWeatherUpdate", requestOptions)
+            .then(response => response.text())
+            .then(result => setTableData(JSON.parse(result)))
+            .catch(error => console.log('error', error));
+
+
+    }
+
+
 </script>
 
 

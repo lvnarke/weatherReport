@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>weatherReport.tools</title>
+    <title>RemotePrint.tools</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
@@ -90,19 +90,68 @@
 
             <div class="row">
                 <div class="col-sm-6 ">
-                    <h1>Enter the location name</h1>
-
-                    <form >
-                        <label for="location">Location:</label>
-                        <input type="text" id="location" name="location"><br><br>
-                        <label for="country">Country:</label>
-                        <input type="text" id="country" name="country"><br><br>
-
-                    </form>
-                    <button onclick="getLatLong()" >Submit</button>
-                    <button onclick="getweather()" id="getWeather-button" disabled>Get Weather</button>
-                    <div id="coords"></div>
-
+                    <style type="text/css">
+                        .tg  {border:none;border-collapse:collapse;border-spacing:0;}
+                        .tg td{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;overflow:hidden;
+                            padding:10px 5px;word-break:normal;}
+                        .tg th{border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;font-weight:normal;
+                            overflow:hidden;padding:10px 5px;word-break:normal;}
+                        .tg .tg-iitq{color:#0079e2;font-family:Verdana, Geneva, sans-serif !important;;font-size:16px;text-align:left;vertical-align:top}
+                    </style>
+                    <table class="tg">
+                        <thead>
+                        <tr>
+                            <th class="tg-iitq">Metric</th>
+                            <th class="tg-iitq">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="tg-iitq">Current Temperature</td>
+                            <td class="tg-iitq" id="currentTemp">290</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Feels Like</td>
+                            <td class="tg-iitq"id="feelsLike">287</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Max Temperature</td>
+                            <td class="tg-iitq"id="maxTemp">290</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Min Temperature</td>
+                            <td class="tg-iitq"id="minTemp">280</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Pressure</td>
+                            <td class="tg-iitq"id="pressure">967</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Humidity</td>
+                            <td class="tg-iitq"id="humidity">45</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq"><span style="font-style:normal">Wind Speed</span></td>
+                            <td class="tg-iitq"id="windSpeed">3.13</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Wind Deg</td>
+                            <td class="tg-iitq"id="windDeg">307</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Gust</td>
+                            <td class="tg-iitq"id="gust">4.92</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Sunrise</td>
+                            <td class="tg-iitq"id=sunrise>1591358790</td>
+                        </tr>
+                        <tr>
+                            <td class="tg-iitq">Sunset</td>
+                            <td class="tg-iitq"id="sunset">1591415703</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -131,7 +180,11 @@
   </div>
 </div> -->
 
-
+    <div class="container footer-bottom">
+        <div class="copyright">
+            &copy; Copyright <strong><span>RemotePrint.tools</span></strong>. All Rights Reserved
+        </div>
+    </div>
 </footer><!-- End Footer -->
 
 <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
@@ -195,35 +248,36 @@
         }
     }
 
-
-
-
-    var lati,longi;
-    function setData(result)
+    var weatherJson={"coord":{"lon":-120.5,"lat":47.5},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":290.9,"feels_like":287.72,"temp_min":289.26,"temp_max":292.04,"pressure":935,"humidity":45},"wind":{"speed":3.13,"deg":307,"gust":4.92},"clouds":{"all":100},"dt":1591383839,"sys":{"type":3,"id":2011179,"country":"US","sunrise":1591358790,"sunset":1591415703},"timezone":-25200,"id":5815135,"name":"Washington","cod":200};
+    function setTableData(json)
     {
-
-        document.getElementById("getWeather-button").disabled=false;
-        var coords=result.substr(2,(result.length-5)).split(",");
-        lati=coords[0];
-        longi=coords[1];
-        document.getElementById("coords").innerHTML="Latitude is "+lati+"<br> Logitude is "+longi
+        document.getElementById("currentTemp").innerHTML=json.main.temp;
+        document.getElementById("feelsLike").innerHTML=json.main.feels_like;
+        document.getElementById("maxTemp").innerHTML=json.main.temp_max;
+        document.getElementById("minTemp").innerHTML=json.main.temp_min;
+        document.getElementById("pressure").innerHTML=json.main.pressure;
+        document.getElementById("humidity").innerHTML=json.main.humidity;
+        document.getElementById("windSpeed").innerHTML=json.wind.speed;
+        document.getElementById("windDeg").innerHTML=json.wind.deg;
+        document.getElementById("gust").innerHTML=json.wind.gust;
+        document.getElementById("sunrise").innerHTML=json.sys.sunrise;
+        document.getElementById("sunset").innerHTML=json.sys.sunset;
     }
-    function getweather()
+    setTableData(weatherJson);
+    processUser();
+    function processUser()
     {
-        var Locationtext=document.getElementById("location");
-        window.location.href = "weather.html?lati="+lati+"&longi="+longi+"&city="+Locationtext.value;
-    }
+        var parameters = location.search.substring(1).split("&");
 
+        var lati = parameters[0].split("=")[1];
+        var longi = parameters[1].split("=")[1];
 
-    function getLatLong()
-    {   var myHeaders = new Headers();
-        var Locationtext=document.getElementById("location");
-        var Countrytext=document.getElementById("country");
+        var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
         var urlencoded = new URLSearchParams();
-        urlencoded.append("location", Locationtext.value);
-        urlencoded.append("country", Countrytext.value);
+        urlencoded.append("lati", lati);
+        urlencoded.append("longi", longi);
 
         var requestOptions = {
             method: 'POST',
@@ -232,10 +286,12 @@
             redirect: 'follow'
         };
 
-        fetch("geoLocationapi", requestOptions)
+        fetch("http://localhost:8080/weatherReport_war_exploded/getWeatherUpdate", requestOptions)
             .then(response => response.text())
-            .then(result => setData(result))
+            .then(result => setTableData(JSON.parse(result)))
             .catch(error => console.log('error', error));
+
+
     }
 
 

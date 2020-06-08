@@ -16,9 +16,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40c676f6-1df6-4605-9ece-6569d630ae74" name="Default Changelist" comment="second commit - java based weather reporting application">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sample/weatherAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sample/weatherAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sample/weatherServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sample/weatherServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/geoLocation.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/geoLocation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/weather.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/weather.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sample/weatherAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sample/weatherAPI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sample/weatherServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sample/weatherServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-06-07" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-06-07" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-06-06" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-06-07" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/weatherReport/org/apache/jsp/result_jsp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/work/Tomcat/localhost/weatherReport/org/apache/jsp/result_jsp.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +91,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -98,6 +108,7 @@
       <recent name="com.sample" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
       <recent name="C:\Users\Lakshmi\Desktop\assetSummary\src\main\webapp" />
@@ -276,7 +287,7 @@
       <workItem from="1591109544380" duration="499000" />
       <workItem from="1591298524102" duration="379000" />
       <workItem from="1591299077270" duration="967000" />
-      <workItem from="1591300574964" duration="19813000" />
+      <workItem from="1591300574964" duration="23091000" />
     </task>
     <task id="LOCAL-00001" summary="Backend-Frontend Integration">
       <created>1591038742460</created>
@@ -313,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591547236271</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="second commit - java based weather reporting application">
+      <created>1591594010309</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591594010309</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,28 +372,28 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="659" y="270" key="#xdebugger.evaluate/0.0.1792.1120@0.0.1792.1120" timestamp="1591380677688" />
-    <state width="1750" height="254" key="GridCell.Tab.0.bottom" timestamp="1591552007841">
+    <state width="1750" height="254" key="GridCell.Tab.0.bottom" timestamp="1591595309648">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1591552007841" />
+    <state width="1750" height="254" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1591595309648" />
     <state width="1750" height="219" key="GridCell.Tab.0.bottom/0.23.1792.1028@0.23.1792.1028" timestamp="1588269153334" />
     <state width="1750" height="219" key="GridCell.Tab.0.bottom/0.23.1792.1036@0.23.1792.1036" timestamp="1587739139422" />
-    <state width="1750" height="254" key="GridCell.Tab.0.center" timestamp="1591552007840">
+    <state width="1750" height="254" key="GridCell.Tab.0.center" timestamp="1591595309647">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1591552007840" />
+    <state width="1750" height="254" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1591595309647" />
     <state width="1750" height="219" key="GridCell.Tab.0.center/0.23.1792.1028@0.23.1792.1028" timestamp="1588269153334" />
     <state width="1750" height="219" key="GridCell.Tab.0.center/0.23.1792.1036@0.23.1792.1036" timestamp="1587739139421" />
-    <state width="1750" height="254" key="GridCell.Tab.0.left" timestamp="1591552007839">
+    <state width="1750" height="254" key="GridCell.Tab.0.left" timestamp="1591595309647">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1591552007839" />
+    <state width="1750" height="254" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1591595309647" />
     <state width="1750" height="219" key="GridCell.Tab.0.left/0.23.1792.1028@0.23.1792.1028" timestamp="1588269153333" />
     <state width="1750" height="219" key="GridCell.Tab.0.left/0.23.1792.1036@0.23.1792.1036" timestamp="1587739139421" />
-    <state width="1750" height="254" key="GridCell.Tab.0.right" timestamp="1591552007840">
+    <state width="1750" height="254" key="GridCell.Tab.0.right" timestamp="1591595309647">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="254" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1591552007840" />
+    <state width="1750" height="254" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1591595309647" />
     <state width="1750" height="219" key="GridCell.Tab.0.right/0.23.1792.1028@0.23.1792.1028" timestamp="1588269153334" />
     <state width="1750" height="219" key="GridCell.Tab.0.right/0.23.1792.1036@0.23.1792.1036" timestamp="1587739139422" />
     <state width="1204" height="318" key="GridCell.Tab.1.bottom" timestamp="1591462301524">
@@ -475,10 +493,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="264" y="182" width="1313" height="629" key="new project wizard/0.0.1792.1120@0.0.1792.1120" timestamp="1591420659193" />
-    <state x="561" y="265" width="670" height="675" key="run.anything.popup" timestamp="1591552007774">
+    <state x="561" y="265" width="670" height="675" key="run.anything.popup" timestamp="1591595309599">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="265" width="670" height="675" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1591552007774" />
+    <state x="561" y="265" width="670" height="675" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1591595309599" />
     <state x="561" y="265" width="670" height="675" key="run.anything.popup/0.23.1792.1036@0.23.1792.1036" timestamp="1591375658263" />
   </component>
 </project>
