@@ -52,18 +52,17 @@ public class weatherServlet extends HttpServlet{
                         System.out.println(val);
                         values.add(val);
                         str = "";
-                        if(data.charAt(i)==']')
+                        if(data.charAt(i)==']' && i == data.length()-2)
                             break;
+                        else if(data.charAt(i)==']' && i != data.length()-2){
+                            i++;
+                        }
                     }
                 }
 
                 PrintWriter writer = resp.getWriter();
-               //writer.println("Location : "+location+"\nCountry: "+country);
-               writer.println(data);
-               //writer.append("OK");
+                writer.println(data);
 
-//                RequestDispatcher view = req.getRequestDispatcher("result.jsp");
-//                view.forward(req, resp);
 
             }
             break;
